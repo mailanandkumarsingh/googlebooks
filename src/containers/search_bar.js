@@ -7,7 +7,10 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { term: '' };
+    this.state = { 
+      term: '',
+      startIndex: 5
+    };
     this.onInputChange = this.onInputChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
@@ -19,7 +22,7 @@ class SearchBar extends Component {
   onFormSubmit(event) {
     event.preventDefault();
 
-    this.props.fetchBook(this.state.term);
+    this.props.fetchBook(this.state.term, this.state.startIndex);
     this.setState({ term: '' });
   }
 

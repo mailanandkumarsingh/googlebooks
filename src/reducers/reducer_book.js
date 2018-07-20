@@ -6,7 +6,8 @@ export default function(state = [], action) {
   switch(action.type) {
     case FETCH_BOOK:
       // return state.concat([ action.payload.data ]);
-      console.log('What is the book payload ---> ', action.payload.data.items);
+      // console.log('What is the book payload ---> ', action.payload.data.items);
+      console.log('What is the book DATA ---> ', action.payload.data);
       let bookList = action.payload.data.items;
       /*parseString(action.payload.data, (err, result) => {
 	      const pullBook = result && result.GoodreadsResponse.search[0].results[0].work

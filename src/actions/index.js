@@ -7,8 +7,10 @@ const ROOT_URL = `https://www.googleapis.com/books/v1/volumes?`;
 
 export const FETCH_BOOK = 'FETCH_BOOK';
 
-export function fetchBook(title) {
-  const url = `${ROOT_URL}q=${title}`;
+export function fetchBook(title, index) {
+  console.log('What is the index ', index);
+  const toIndex = index * 10 + 1;
+  const url = `${ROOT_URL}q=${title}&startIndex=${toIndex}`;
   console.log('What is the URL : ', url);
   const request = axios.get(url);
 
