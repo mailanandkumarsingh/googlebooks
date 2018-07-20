@@ -5,10 +5,11 @@ import _ from 'lodash';
 
 class BookList extends Component {
   renderBooks(bookList) {
-    const title = bookList[0].title[0];
-    const imageUrl = bookList[0].image_url[0];
-    const id = bookList[0].id[0]._;
-    const author = bookList[0].author[0].name[0];
+    console.log('Render Books --> ', bookList);
+    const title = bookList.volumeInfo.title;
+    const imageUrl = bookList.volumeInfo.imageLinks.thumbnail;
+    const id = bookList.id;
+    const author = bookList.volumeInfo.authors[0];
     return (
         <tr key={id}>
           <td>
