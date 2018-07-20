@@ -1,16 +1,18 @@
 import axios from 'axios';
+import {parseString} from 'xml2js';
 
-const API_KEY = '73580da93ef6317e3435ea13ddb46761';
-const ROOT_URL = `https://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
+const API_KEY = 'wP9YohPmVTl9W8XUJVVgFQ';
+//const ROOT_URL = `https://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
+const ROOT_URL = `https://www.goodreads.com/search/index.xml?key=${API_KEY}`;
 
-export const FETCH_WEATHER = 'FETCH_WEATHER';
+export const FETCH_BOOK = 'FETCH_BOOK';
 
-export function fetchWeather(city) {
-  const url = `${ROOT_URL}&q=${city},GB`;
+export function fetchBook(title) {
+  const url = `${ROOT_URL}&q=${title}`;
   const request = axios.get(url);
 
   return {
-    type: FETCH_WEATHER,
+    type: FETCH_BOOK,
     payload: request
   };
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators} from 'redux';
-import { fetchWeather } from '../actions/index';
+import { fetchBook } from '../actions/index';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -19,8 +19,7 @@ class SearchBar extends Component {
   onFormSubmit(event) {
     event.preventDefault();
 
-    // We need to go and fetch weather data
-    this.props.fetchWeather(this.state.term);
+    this.props.fetchBook(this.state.term);
     this.setState({ term: '' });
   }
 
@@ -28,9 +27,9 @@ class SearchBar extends Component {
     return (
       <form onSubmit={ this.onFormSubmit } className="input-group">
         <input
-          placeholder="Get a five-day forecast in your favorite cities"
+          placeholder="Search for Books by Title"
           className="form-control"
-          id="city"
+          id="title"
           value={ this.state.term }
           onChange={ this.onInputChange }
         />
@@ -43,7 +42,7 @@ class SearchBar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchWeather }, dispatch);
+  return bindActionCreators({ fetchBook }, dispatch);
 }
 
 // export default SearchBar;
