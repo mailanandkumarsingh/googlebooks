@@ -9,7 +9,7 @@ class BookList extends Component {
     const title = bookList.volumeInfo.title;
     const imageUrl = bookList.volumeInfo.imageLinks.thumbnail;
     const id = bookList.id;
-    const author = bookList.volumeInfo.authors[0];
+    const author = bookList.volumeInfo.authors && bookList.volumeInfo.authors.toString();
     return (
         <tr key={id}>
           <td>

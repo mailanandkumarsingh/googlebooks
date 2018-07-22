@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Pagination from 'react-js-pagination';
+import ReactPaginate from 'react-paginate';
 import { connect } from 'react-redux';
 import { bindActionCreators} from 'redux';
 import { fetchBook } from '../actions/index';
@@ -29,15 +29,15 @@ class SearchBar extends Component {
     //this.setState({ term: '' });
   }
 
-  handlePageChange(pageNumber) {
-    console.log(`active page is ${pageNumber}`);
+  handlePageChange({selected}) {
+    console.dir(selected);
     this.setState(
       {
-        activePage: pageNumber,
+        activePage: selected,
         // startIndex: pageNumber
       }
     );
-    this.props.fetchBook(this.state.term, pageNumber);
+    this.props.fetchBook(this.state.term, selected);
   }
 
   render() {
@@ -56,13 +56,18 @@ class SearchBar extends Component {
           </span>
           
         </form>
-        <Pagination
-            activePage={this.state.activePage}
-            itemsCountPerPage={10}
-            totalItemsCount={150}
-            pageRangeDisplayed={10}
-            onChange={this.handlePageChange}
-          />
+        <ReactPaginate previousLabel={"previous"}
+           nextLabel={"next"}
+           breakLabel={<a href="">...</a>}
+           breakClassName={"break-me"}
+           pageCount={50}
+           marginPagesDisplayed={2}
+           pageRangeDisplayed={5}
+           onPageChange={this.handlePageChange}
+           containerClassName={"pagination"}
+           subContainerClassName={"pages pagination"}
+           activeClassName={"active"} 
+        />
       </div>
       
     )
