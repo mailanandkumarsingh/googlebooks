@@ -48,6 +48,7 @@
     "react-d3": "^0.4.0",
     "react-dom": "^15.4.2",
     "react-google-maps": "^4.7.1",
+    "react-modal": "^3.5.1",
     "react-paginate": "^5.2.3",
     "react-redux": "^4.0.0",
     "react-router": "^2.0.1",

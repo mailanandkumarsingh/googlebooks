@@ -5,21 +5,6 @@ import GoogleMap from '../../components/google_map';
 import {parseString} from 'xml2js';
 
 class WeatherList extends Component {
-  renderWeather(cityData) {
-    if (cityData) {
-      const name = cityData.city.name;
-      const temps = cityData.list.map(weather => weather.main.temp - 273);
-      const { lon, lat } = cityData.city.coord;
-      console.log(`what is lon ${lon} and lat${lat}`);
-      return (
-        <tr key={name}>
-          <td><GoogleMap lon={lon} lat={lat} /></td>
-          <td><Chart data={ temps } /></td>
-        </tr>
-      );
-    }
-    
-  }
 
   render() {
     return (
