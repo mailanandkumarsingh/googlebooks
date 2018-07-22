@@ -105,7 +105,7 @@ class BookList extends Component {
           onRequestClose={this.closeModal}
           style={customStyles}
           ariaHideApp={false}
-          contentLabel="Example Modal"
+          contentLabel="Books Detail Modal"
       >
         <h2 ref={subtitle => this.subtitle = subtitle}>{this.state.title}</h2>
         <img src={this.state.smallImageUrl} />
